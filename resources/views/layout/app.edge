@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="@yield('code_title') | Hızlı kod paylaşma">
+    <meta name="revised" content="21.08.2020"/>
+    <meta name="url" content="https://copya.xyz/">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="copya @yield('code_title')">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="theme-color" content="#1d1f21">
+    <meta name="color-scheme" content="dark">
+
+    <meta property="og:title" content="copya @yield('code_title')"/>
+    <meta property="og:description" content="@yield('code_title')Hızlı kod paylaşma."/>
+    <meta property="og:locale" content="tr_TR"/>
+    <meta property="og:site_name" content="copya"/>
+
+    <meta name="google" content="notranslate"/>
+    <meta name="robots" content="archive, follow, imageindex, index, odp, snippet"/>
+
+    <link rel="apple-touch-icon" href="" />
+    <link rel="shortcut icon" href="" />
+    <link rel="icon" href="">
+    {{--  <meta name="csrf-token" content="{{ csrfField() }}">  --}}
+    {{ csrfField() }}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+
+    {{--  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700,800,900">  --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:100,200,300,400,600,700,800,900">
+
+    <link href="http://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+    {{--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.2/styles/srcery.min.css">  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/stackoverflow-dark.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
+
+    <title>copya3</title>
+
+    <style>
+        /* .font-poppins{
+            font-family: "Poppins", sans-serif;
+        } */
+        .font-poppins{
+            font-family: "Sofia Pro", sans-serif;
+        }
+        .font-quicksand{
+            font-family: "Quicksand", sans-serif;
+        }
+        .hljs-theme-color{
+            background: #1c1b19;
+            background-color: #1c1b19;
+        }
+        html {
+            background: #1c1b19;
+        }
+        textarea{ border: none; resize: none; }
+        textarea:focus { outline: none !important; }
+        .w-99 { width: 90%; }
+        .w-101 { width: 100%; }
+        /*.h-92 { height: 92vh; }*/
+        .h-92 { height: 90vh; }
+        ::selection { background: #bfbfbf; }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+            background: #3c4044;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1c1b19;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #787e87;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {background: #54595f;}
+        .hljs::selection, .hljs span::selection { background: #bfbfbf; }
+        .hljs { padding: .1em; }
+        .hljs-ln-n{ text-align: right; padding-right: 1rem;}
+    </style>
+</head>
+<body>
+    @!section('content')
+</body>
+</html>

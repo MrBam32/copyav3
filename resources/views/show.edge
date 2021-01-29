@@ -1,0 +1,84 @@
+@layout('layout.app')
+
+@section('content')
+
+    <style>
+        pre{
+            padding: 5px;
+        }
+    </style>
+
+    <script language="JavaScript">
+        function copyElementText(id) {
+            var text = document.getElementById(id).innerText;
+            var elem = document.createElement("textarea");
+            document.body.appendChild(elem);
+            elem.value = "copya.xyz"+text;
+            elem.select();
+            document.execCommand("copy");
+            document.body.removeChild(elem);
+        }
+    </script>
+
+    <nav class="bg-gray-800 font-poppins select-none">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-12">
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex-shrink-0">
+                        <span class="flex font-quicksand font-semibold text-white uppercase px-3 py-2 rounded-md  leading-5 text-white" style="letter-spacing: 5px">copya <span class="font-thin text-xs normal-case" style="letter-spacing: 0px">Lite</span></span>
+
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex">
+                            @if(paste.isim)
+                            <span class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">İsim: {{paste.isim}}</span>
+                            @endif
+                            @if(paste.expire)
+                                <span class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Geçerlilik: {{paste.expire}}</span>
+                            @endif
+                            <!--<a href="#" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Kod Paylaşma</a>-->
+                            <!--<a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">URL kısaltıcı</a>
+                            <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Hesap</a>-->
+                                                       <a id="copyaurl" onclick="copyElementText(this.id)" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out hover:no-underline hover:text-gray-500">{{request.url()}}</a>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <a href="{{route('main')}}" target="_blank" class=" px-2 py-1 text-md bg-green-700 text-white rounded-md hover:text-white focus:outline-none focus:text-white focus:bg-green-800 transition duration-150 ease-in-out hover:no-underline hover:text-white hover:bg-green-800" aria-label="yeni" >
+                        Yeni
+                    </a>
+                    <a class="ml-2 px-2 py-1 text-md bg-gray-900 text-white rounded-md hover:text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out  hover:text-white hover:bg-gray-700" aria-label="QR" href="#qr-code-modal" uk-toggle>
+                        QR
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+    </script>
+    <pre class="text-sm hljs-theme-color border-0 pl-4"><code>{{paste.code}}</code></pre>
+
+
+    <div id="qr-code-modal" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical rounded-lg">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <center>
+                <div id="qrcode"></div>
+                <script type="text/javascript">
+                    let qrcode = new QRCode(document.getElementById("qrcode"), {
+                        text: "{{request.url()}}",
+                        width: 192,
+                        height: 192,
+                    });
+                </script>
+            </center>
+        </div>
+    </div>
+@endsection

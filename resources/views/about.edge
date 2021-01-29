@@ -1,0 +1,46 @@
+@layout('layout.app')
+
+@section('content')
+
+    <style>
+        pre{
+            padding: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.2/styles/srcery.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.2/styles/srcery.min.css">
+
+
+    <nav class="bg-gray-800 font-poppins select-none">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-12">
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex-shrink-0">
+                        <span class="flex font-quicksand font-semibold text-white uppercase px-3 py-2 rounded-md  leading-5 text-white" style="letter-spacing: 5px">copya</span>
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex">
+                            <a href="{{route('main')}}" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 hover:text-gray-200 hover:no-underline transition duration-150 ease-in-out">Hakkında</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <a href="{{route('main')}}" target="_blank" class=" px-2 py-1 text-md bg-green-700 text-white rounded-md hover:text-white focus:outline-none focus:text-white focus:bg-green-800 transition duration-150 ease-in-out hover:no-underline hover:text-white hover:bg-green-800" aria-label="yeni" >
+                        Yeni
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+    </script>
+    <pre class="text-sm hljs-theme-color border-0 pl-4"><code>{{paste.code}}</code></pre>
+
+@endsection
